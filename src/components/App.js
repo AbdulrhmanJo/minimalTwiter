@@ -1,11 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { handleInitialDate } from '../actions/shared'
+import Dashboard from './dashboard'
 
-function App() {
-  return (
-    <div>
-     starter code
-    </div>
-  );
+class App extends React.Component{
+  componentDidMount(){
+    this.props.dispatch(handleInitialDate())
+  }
+
+  render(){
+    return (
+      <div>
+        {this.props.loading ? null : <Dashboard/>}
+      </div>
+    );
+  }
+  
 }
 
-export default App;
+function mapStateToProps({authedUser}){
+  return {
+    loading: authedUser === null
+  }
+}
+
+
+export default connect(mapStateToProps)(App)
