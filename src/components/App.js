@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { handleInitialDate } from '../actions/shared'
 import Dashboard from './dashboard'
+import LoadingBar from 'react-redux-loading'
+import NewTweet from './newTweet'
 
 class App extends React.Component{
   componentDidMount(){
@@ -11,7 +13,8 @@ class App extends React.Component{
   render(){
     return (
       <div>
-        {this.props.loading ? null : <Dashboard/>}
+        <LoadingBar />
+        {this.props.loading ? null : <NewTweet/>}
       </div>
     );
   }
