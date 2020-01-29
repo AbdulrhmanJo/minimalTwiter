@@ -16,6 +16,11 @@ class Nav extends Component{
                             New Tweet
                         </NavLink>
                     </li>
+                    <li>
+                      <NavLink to="/likes" exact activeClassName="active">
+                          Likes
+                      </NavLink>
+                    </li>
                 </ul>
             </nav>
         )
